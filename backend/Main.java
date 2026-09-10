@@ -13,9 +13,10 @@ public class Main {
                 lunarcalendar lunarcalendar = new lunarcalendar();
                 festival festival = new festival();
                 timezone timezone = new timezone();
-                HttpServer server = HttpServer.create(
-                                new InetSocketAddress(8080), 0);
 
+                int port = Integer.parseInt(System.getenv().getOrDefault("port", "8080"));
+                HttpServer server = HttpServer.create(
+                                new InetSocketAddress("0.0.0.0", port), 0);
                 // Backend Test
                 server.createContext("/", exchange -> {
 
