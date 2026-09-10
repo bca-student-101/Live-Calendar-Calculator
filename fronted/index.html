@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Live Calendar & Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <h1>Live Calendar & Calculator</h1>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#calculator">Calculator</a>
+            <a href="#calendar">Calendar</a>
+            <a href="#timezone">Time Zones</a>
+            <a href="#festivals">Festivals</a>
+        </nav>
+        
+    </header>
+
+
+    <!-- Home Section -->
+    <section id="home">
+        <h2>Live Calendar & Calculator</h2>
+        <p>
+            Calculate numbers, view calendars, check festivals
+            and convert time across global time zones.
+        </p>
+        <div>
+            <p>Current Date:<span id="current-date"></span></p>
+            <p> Current Time:<span id="current-time"></span></p>
+        </div>
+        
+    </section>
+
+
+    <!-- Calculator Section -->
+    <section id="calculator">
+        <h2>Calculator</h2>
+
+        <input type="text" id="display" readonly>
+
+        <div class="calculator-buttons">
+
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>/</button>
+
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>*</button>
+
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>-</button>
+
+            <button>0</button>
+            <button>.</button>
+            <button>=</button>
+            <button>+</button>
+
+            <button>C</button>
+
+        </div>
+    </section>
+
+
+    <!-- Calendar Section -->
+    <section id="calendar">
+
+        <h2>Calendar</h2>
+
+        <div>
+            <button id="previous-month">Previous</button>
+
+            <h3 id="month-year"></h3>
+
+            <button id="next-month">Next</button>
+        </div>
+
+        <!-- Solar / Lunar -->
+        <div>
+            <button id="solar">☀️ Solar Calendar</button>
+            <button id="lunar">🌙 Lunar Calendar</button>
+            <p id="lunar-date"></p>
+        </div>
+         <div id="weekdays">
+            <span>Sun</span>
+            <span>Mon</span>
+            <span>Tue</span>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
+         </div>
+        <div id="calendar-days">
+            <!-- Calendar dates will be generated here -->
+        </div>
+
+    </section>
+
+
+    <!-- Global Time Zone Section -->
+    <section id="timezone">
+
+        <h2>Global Time Zones</h2>
+
+        <select id="timezone-select">
+            <option value="Asia/Kolkata">India</option>
+            <option value="Europe/London">London</option>
+            <option value="America/New_York">New York</option>
+            <option value="Asia/Tokyo">Tokyo</option>
+        </select>
+
+        <p id="timezone-result"></p>
+
+    </section>
+
+
+    <!-- Festivals Section -->
+    <section id="festivals">
+
+        <h2>Festivals</h2>
+
+        <div id="festival-list">
+            <!-- Festival data will come here -->
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Live Calendar & Calculator</p>
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+ </body>
+</html>
