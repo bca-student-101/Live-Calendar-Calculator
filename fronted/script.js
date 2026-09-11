@@ -200,7 +200,7 @@ async function loadCalendarDays(year, month) {
 // Initial Live Data Load
 async function updateDateTime() {
     try {
-        const response = await fetch("${API_BASE_URL}/api/calendar");
+        const response = await fetch(`${API_BASE_URL}/api/calendar`);
         if (response.ok) {
             const data = await response.json();
             if (data.date) {
