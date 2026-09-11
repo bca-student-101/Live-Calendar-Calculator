@@ -1,5 +1,5 @@
 // Live Calendar & Calculator
-
+const API_BASE_URL = "https://live-calendar-calculator.onrender.com";
 let currentInput = "";
 let currentYear = new Date().getFullYear();
 let currentMonth = new Date().getMonth() + 1; // 1-indexed (1 = Jan, 12 = Dec)
@@ -43,7 +43,7 @@ buttons.forEach(button => {
                     if (!isNaN(a) && !isNaN(b)) {
                         try {
                             const response = await fetch(
-                                `http://localhost:8080/api/calculator?a=${a}&b=${b}&operation=${operation}`
+                                `${API_BASE_URL}/api/calculator?a=${a}&b=${b}&operation=${operation}`
                             );
                             const data = await response.json();
                             display.value = data.result;
@@ -101,8 +101,8 @@ async function loadCalendarDays(year, month) {
     // Try fetching month info and first day from backend
     try {
         const [monthRes, firstDayRes] = await Promise.all([
-            fetch(`http://localhost:8080/api/calendar/month?year=${year}&month=${month}`),
-            fetch(`http://localhost:8080/api/calendar/first-day?year=${year}&month=${month}`)
+            fetch(`${API_BASE_URL}/calendar/month?year=${year}&month=${month}`),
+            fetch(`${API_BASE_URL}/api/calendar/first-day?year=${year}&month=${month}`)
         ]);
         if (monthRes.ok) {
             const mData = await monthRes.json();
@@ -165,7 +165,7 @@ async function loadCalendarDays(year, month) {
 
             try {
                 const response = await fetch(
-                    `http://localhost:8080/api/festival?year=${year}&month=${month}&day=${day}`
+                    `${API_BASE_URL}/api/festival?year=${year}&month=${month}&day=${day}`
                 );
                 if (response.ok) {
                     const data = await response.json();
@@ -200,7 +200,7 @@ async function loadCalendarDays(year, month) {
 // Initial Live Data Load
 async function updateDateTime() {
     try {
-        const response = await fetch("http://localhost:8080/api/calendar");
+        const response = await fetch("${API_BASE_URL}/api/calendar");
         if (response.ok) {
             const data = await response.json();
             if (data.date) {
@@ -286,7 +286,7 @@ if (lunarBtn) {
             solarBtn.style.color = "black";
         }
         try {
-            const res = await fetch("http://localhost:8080/api/calendar");
+            const res = await fetch("${API_BASE_URL}/api/calendar");
             if (res.ok) {
                 const data = await res.json();
                 if (lunarDateText) lunarDateText.textContent = data.lunarDate;
@@ -310,7 +310,7 @@ if (timezoneSelect) {
     timezoneSelect.addEventListener("change", async () => {
         const zone = timezoneSelect.value;
         try {
-            const response = await fetch(`http://localhost:8080/api/timezone?zone=${zone}`);
+            const response = await fetch(`${API_BASE_URL}/api/timezone?zone=${zone}`);
             if (response.ok) {
                 const data = await response.json();
                 if (timezoneResult) timezoneResult.textContent = `Time in ${zone}: ${data.time}`;
